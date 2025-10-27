@@ -18,9 +18,19 @@ export const registerUser = async (req, res) => {
     );
 
     const user = result.rows[0];
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "1h" });
 
-    res.json({ user, token });
+    // Sign JWT
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "1d" });
+
+    // Token in HTTP-only cookie
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production", // true in production
+      sameSite: "strict",
+      maxAge: 24 * 60 * 60 * 1000, // 1 day
+    });
+
+    res.json({ user });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -36,11 +46,26 @@ export const loginUser = async (req, res) => {
 
     const user = result.rows[0];
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(400).json({ message: "Invalid email or password"});
+    if (!isMatch) return res.status(400).json({ message: "Invalid email or password" });
 
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "1h" });
-    res.json({ token, user: { id: user.id, email: user.email, created_at: user.created_at } });
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "1d" });
+
+    // Token HTTP-only cookie
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      maxAge: 24 * 60 * 60 * 1000, // 1 day
+    });
+
+    res.json({ user: { id: user.id, email: user.email, created_at: user.created_at } });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
+};
+
+// Logout
+export const logoutUser = (req, res) => {
+  res.cookie("token", "", { httpOnly: true, expires: new Date(0) });
+  res.json({ message: "Logged out successfully" });
 };
