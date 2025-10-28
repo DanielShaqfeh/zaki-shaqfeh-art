@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+body {
+  background: linear-gradient(135deg, #000000 0%, #062312 40%, #0f4d2b 100%);
+  min-height: 100vh;
+  color: #e8ffe8;
+}
+
+
+
+
+
+.aboreto-font {
+  font-family: 'Aboreto', cursive;
+}
