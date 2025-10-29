@@ -5,16 +5,18 @@ import LoginForm from "../components/LoginForm";
 
 const LoginPage = () => {
   return (
-    <div className="flex h-screen w-full aboreto-font">
+    <div className="flex flex-col md:flex-row h-screen w-full aboreto-font">
       {/* Left side: Background with logo */}
-      <div className="w-1/2 flex items-center justify-center gradient-background">
-        <img src={logo} alt="Logo" className="h-40 w-auto" />
+      <div className="w-full md:w-1/2 flex items-center justify-center gradient-background p-6">
+        <img src={logo} alt="Logo" className="h-32 md:h-40 w-auto" />
       </div>
 
       {/* Right side: White background with form */}
-      <div className="w-1/2 bg-white flex flex-col items-center justify-center">
-        <h2 className="text-3xl font-bold text-gray-800 mb-2">Log In</h2>
-        <p className="mb-6 text-gray-800">
+      <div className="w-full md:w-1/2 bg-white flex flex-col items-center justify-center p-8">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2 text-center">
+          Log In
+        </h2>
+        <p className="mb-6 text-gray-800 text-center text-sm md:text-base">
           Don't have an account?{" "}
           <Link
             to="/signup"

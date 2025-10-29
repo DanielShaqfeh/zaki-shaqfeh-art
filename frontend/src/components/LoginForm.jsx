@@ -5,7 +5,7 @@ import SocialButton from "./SocialButton";
 
 const GoogleIcon = (
   <svg
-    className="w-4 h-4 mr-2" // smaller size and margin for spacing
+    className="w-4 h-4 mr-2"
     viewBox="0 0 533.5 544.3"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -18,7 +18,7 @@ const GoogleIcon = (
 
 const LoginForm = () => {
   return (
-    <div className="w-3/4 max-w-md flex flex-col items-center">
+    <div className="w-full max-w-md flex flex-col items-center">
       <form className="flex flex-col space-y-4 w-full">
         <InputField type="email" placeholder="Email" />
         <InputField type="password" placeholder="Password" />
@@ -29,19 +29,19 @@ const LoginForm = () => {
 
         <button
           type="submit"
-          className="p-3 bg-green-600 hover:bg-green-700 rounded text-white transition-all duration-300 ease-in-out"
+          className="p-3 bg-green-600 hover:bg-green-700 rounded text-white transition-all duration-300 ease-in-out w-full"
         >
           Log In
         </button>
       </form>
 
-      {/* Flex container for paragraph and Google button */}
-      <div className="mt-4 w-full flex items-center ">
-        <p className="text-gray-500">or continue with</p>
+      {/* Divider and Google button */}
+      <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
+        <p className="text-gray-500 text-sm sm:text-base">or continue with</p>
         <SocialButton
           icon={GoogleIcon}
           text="Google"
-          className="flex items-center px-3 py-1 text-sm rounded bg-gray-100 hover:bg-gray-200"
+          className="px-3 py-2 text-sm rounded bg-gray-100 hover:bg-gray-200"
         />
       </div>
     </div>
