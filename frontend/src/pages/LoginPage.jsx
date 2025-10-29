@@ -7,7 +7,7 @@ const LoginPage = () => {
   return (
     <div className="flex h-screen w-full aboreto-font">
       {/* Left side: Background with logo */}
-      <div className="w-1/2 flex items-center justify-center bg-gradient-to-b from-black via-[#0b1a11] to-green-800">
+      <div className="w-1/2 flex items-center justify-center gradient-background">
         <img src={logo} alt="Logo" className="h-40 w-auto" />
       </div>
 

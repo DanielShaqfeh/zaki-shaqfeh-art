@@ -18,7 +18,7 @@ const Header = () => {
 
 
         {/* Logo */}
-        <h1 className="flex-shrink-0">
+        <h1 className="flex-shrink-0 mx-auto">
           <img src={logo} alt="Logo" className="h-15 md:h-30 w-auto" />
         </h1>
 
@@ -48,7 +48,7 @@ const Header = () => {
       {/* Mobile menu */}
       {isOpen && (
         <div className="md:hidden bg-black">
-          <ul className="flex flex-col items-center space-y-4 py-4 text-lg">
+          <ul className="flex flex-col items-start space-y-4 py-4 px-5 text-lg">
             <li><NavLink href="#home">HOME</NavLink></li>
             <li><NavLink href="#about">ABOUT</NavLink></li>
             <li><NavLink href="#gallery">GALLERY</NavLink></li>
