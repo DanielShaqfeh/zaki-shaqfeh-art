@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import logo from "../assets/logo.png";
 import NavLink from "../components/NavLink";
+import Logo from "../components/Logo";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false); // For mobile menu toggle
 
   return (
-    <header className="text-white shadow-md aboreto-font border-none">
+    <header className="text-white shadow-md aboreto-font border-none fixed top-0 left-0 w-full not-last:z-50">
       <nav className="container mx-auto flex items-center justify-between py-4 px-6 md:px-10">
         {/* Left menu */}
         <ul className="hidden md:flex space-x-35 text-lg">
@@ -15,20 +15,13 @@ const Header = () => {
           <li><NavLink href="#gallery">GALLERY</NavLink></li>
         </ul>
         
-
+  
 
         {/* Logo */}
-        <h1 className="flex-shrink-0 mx-auto">
-          <img
-            src={logo}
-            alt="Logo"
-            className="h-15 md:h-30 w-auto transition-all duration-300 hover:brightness-150 hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]"
-          />
-        </h1>
-
+        <Logo className="h-15 md:h-30" />
 
         {/* Right menu */}
-        <ul className="hidden md:flex space-x-35 text-lg">
+        <ul className="hidden md:flex md:space-x-35 text-lg">
           <li><NavLink href="#achievements">ACHIEVEMENTS</NavLink></li>
           <li><NavLink href="#contact">CONTACT</NavLink></li>
           <li className="mr-5"><NavLink href="#login" to="/login">LOGIN</NavLink></li>

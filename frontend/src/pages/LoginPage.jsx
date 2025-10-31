@@ -2,13 +2,15 @@ import React from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import LoginForm from "../components/LoginForm";
+import Logo from "../components/Logo";
 
 const LoginPage = () => {
   return (
-    <div className="flex flex-col md:flex-row h-screen w-full aboreto-font">
+    <div className="flex flex-col md:flex-row h-screen w-full overflow-x-hidden aboreto-font">
+
       {/* Left side: Background with logo */}
       <div className="w-full md:w-1/2 flex items-center justify-center gradient-background p-6">
-        <img src={logo} alt="Logo" className="h-32 md:h-40 w-auto" />
+        <Logo className="h-30 md:h-50"/>
       </div>
 
       {/* Right side: White background with form */}
