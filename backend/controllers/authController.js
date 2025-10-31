@@ -31,7 +31,8 @@ export const registerUser = async (req, res) => {
     });
 
     res.json({ user });
-  } catch (err) {
+  } 
+  catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
@@ -39,6 +40,7 @@ export const registerUser = async (req, res) => {
 // Login
 export const loginUser = async (req, res) => {
   const { email, password } = req.body;
+  console.log("Login attempt:", { email, password }); 
   try {
     const result = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
     if (result.rows.length === 0)

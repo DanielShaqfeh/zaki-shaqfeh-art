@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import InputField from "./InputField";
 import FormLink from "./FormLink";
 import SocialButton from "./SocialButton";
@@ -17,26 +17,75 @@ const GoogleIcon = (
 );
 
 const LoginForm = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+        credentials: "include", 
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.message || "Login failed");
+      } else {
+        console.log("Login successful:", data.user); 
+        window.location.href = "/"; 
+      }
+    } catch (err) {
+      console.error("Fetch error:", err);
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="w-full max-w-md flex flex-col items-center">
-      <form className="flex flex-col space-y-4 w-full">
-        <InputField type="email" placeholder="Email" />
-        <InputField type="password" placeholder="Password" />
+      <form onSubmit={handleSubmit} className="flex flex-col space-y-4 w-full">
+        <InputField
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <InputField
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
 
-        <div className="text-right">
+        <div className="text-right aboreto-font">
           <FormLink to="/forgot-password">Forgot Password?</FormLink>
         </div>
 
+        {error && <p className="text-red-500 text-sm">{error}</p>}
+
         <button
           type="submit"
-          className="p-3 bg-green-600 hover:bg-green-700 rounded text-white transition-all duration-300 ease-in-out w-full"
+          disabled={loading}
+          className="p-3 bg-green-600 hover:bg-green-700 rounded text-white transition-all duration-300 ease-in-out w-full aboreto-font"
         >
-          Log In
+          {loading ? "Logging in..." : "Log In"}
         </button>
       </form>
 
       {/* Divider and Google button */}
-      <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
+      <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 w-full aboreto-font">
         <p className="text-gray-500 text-sm sm:text-base">or continue with</p>
         <SocialButton
           icon={GoogleIcon}

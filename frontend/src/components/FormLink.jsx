@@ -7,7 +7,7 @@ const FormLink = ({ to, children }) => {
       to={to}
       className="text-black border-b-2 border-transparent hover:border-green-500 transition-all duration-300 text-sm"
     >
-      {children}
+      {children} 
     </Link>
   );
 };
