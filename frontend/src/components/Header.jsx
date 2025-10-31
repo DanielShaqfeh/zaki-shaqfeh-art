@@ -19,8 +19,13 @@ const Header = () => {
 
         {/* Logo */}
         <h1 className="flex-shrink-0 mx-auto">
-          <img src={logo} alt="Logo" className="h-15 md:h-30 w-auto" />
+          <img
+            src={logo}
+            alt="Logo"
+            className="h-15 md:h-30 w-auto transition-all duration-300 hover:brightness-150 hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]"
+          />
         </h1>
+
 
         {/* Right menu */}
         <ul className="hidden md:flex space-x-35 text-lg">
