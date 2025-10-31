@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import NavLink from "../components/NavLink";
 import Logo from "../components/Logo";
 
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false); // For mobile menu toggle
 
@@ -27,11 +28,8 @@ const Header = () => {
           <li className="mr-5"><NavLink href="#login" to="/login">LOGIN</NavLink></li>
         </ul>
 
-        {/* Hamburger menu (visible on small screens) */}
-        <button
-          className="md:hidden text-white focus:outline-none"
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        {/* Hamburger menu */}
+        <button className="md:hidden text-white focus:outline-none" onClick={() => setIsOpen(!isOpen)}>
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeLinecap="round"
@@ -44,18 +42,19 @@ const Header = () => {
       </nav>
 
       {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden bg-black">
-          <ul className="flex flex-col items-start space-y-4 py-4 px-5 text-lg">
-            <li><NavLink href="#home">HOME</NavLink></li>
-            <li><NavLink href="#about">ABOUT</NavLink></li>
-            <li><NavLink href="#gallery">GALLERY</NavLink></li>
-            <li><NavLink href="#achievements">ACHIEVEMENTS</NavLink></li>
-            <li><NavLink href="#contact">CONTACT</NavLink></li>
-            <li><NavLink href="#login" to="/login">LOGIN</NavLink></li>
-          </ul>
-        </div>
-      )}
+      <div className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"}`}>
+        <ul className="flex flex-col items-start space-y-4 py-4 px-5 text-lg bg-black">
+          <li><NavLink href="#home">HOME</NavLink></li>
+          <li><NavLink href="#about">ABOUT</NavLink></li>
+          <li><NavLink href="#gallery">GALLERY</NavLink></li>
+          <li><NavLink href="#achievements">ACHIEVEMENTS</NavLink></li>
+          <li><NavLink href="#contact">CONTACT</NavLink></li>
+          <li><NavLink href="#login" to="/login">LOGIN</NavLink></li>
+        </ul>
+      </div>
+
+        
+
     </header>
   );
 };
