@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 // Register
 export const registerUser = async (req, res) => {
   const { first_name, last_name, email, password } = req.body;
-  console.log("Signup attempt:", {first_name,last_name,email,password }); 
+  console.log("Signup attempt:", {first_name,last_name,email}); 
   try {
     // Check if the user already exists
     const existing = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
@@ -48,7 +48,7 @@ export const registerUser = async (req, res) => {
 // Login
 export const loginUser = async (req, res) => {
   const { email, password } = req.body;
-  console.log("Login attempt:", { email, password }); 
+  console.log("Login attempt:", { email }); 
 
   // Find user by email
   try {
