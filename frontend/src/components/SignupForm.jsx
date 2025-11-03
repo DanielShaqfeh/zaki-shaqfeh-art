@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import InputField from "./InputField";
-import FormLink from "./FormLink";
 import SocialButton from "./SocialButton";
 
 const GoogleIcon = (

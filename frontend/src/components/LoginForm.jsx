@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import InputField from "./InputField";
-import FormLink from "./FormLink";
 import SocialButton from "./SocialButton";
+import UnderlineLink from "./UnderlineLink";
 
 const GoogleIcon = (
   <svg
@@ -69,8 +69,11 @@ const LoginForm = () => {
           required
         />
 
+        {/* Forgot Password */}
         <div className="text-right aboreto-font">
-          <FormLink to="/forgot-password">Forgot Password?</FormLink>
+          <UnderlineLink href="/forgot-password" className="text-sm text-black">
+            Forgot Password?
+          </UnderlineLink>
         </div>
 
         {error && <p className="text-red-500 text-sm">{error}</p>}

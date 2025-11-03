@@ -1,13 +1,13 @@
 import React from "react";
 import logo from "../assets/logo.png";
 
-const Logo = ({ className = "h-15 md:h-30" }) => {
+const Logo = ({ className = "" }) => {
   return (
-    <h1 className="flex-shrink-0 mx-auto">
+    <h1 className="flex-shrink-0">
       <img
         src={logo}
         alt="Logo"
-        className={`${className} w-auto transition-all duration-300 hover:brightness-150 hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]`}
+        className={`${className} w-auto`}
       />
     </h1>
   );

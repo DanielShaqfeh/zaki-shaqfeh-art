@@ -19,11 +19,9 @@ const SignupPage = () => {
         </h2>
         <p className="mb-6 text-gray-800 text-center text-sm md:text-base aboreto-font">
           Already have an account?{" "}
-          <Link
-            to="/login"
-            className="text-black font-semibold border-b-2 border-transparent hover:border-green-500 transition-all duration-300 aboreto-font"
-          >
-            Log In
+          <Link to="/login" className="relative inline-block group">
+              <span className="font-semibold text-black aboreto-font">Log In</span>
+              <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-green-500 transition-all duration-300 ease-in-out group-hover:w-full"></span>
           </Link>
         </p>
 
