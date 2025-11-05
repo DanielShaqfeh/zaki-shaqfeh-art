@@ -3,9 +3,12 @@ import zaki01 from "../assets/images/zaki01.jpg";
 import zaki02 from "../assets/images/zaki02.jpg";
 import zaki03 from "../assets/images/zaki03.jpg";
 import zaki04 from "../assets/images/zaki04.jpg";
+import zaki05 from "../assets/images/zaki05.jpg";
+import zaki06 from "../assets/images/zaki06.jpg";
+import zaki07 from "../assets/images/zaki07.jpg";
 
 const AboutCarousel = () => {
-  const images = [zaki01, zaki02, zaki03, zaki04];
+  const images = [zaki02, zaki01, zaki05, zaki03, zaki06, zaki04, zaki07];
   const [currentImage, setCurrentImage] = useState(0);
   const [fade, setFade] = useState(true);
   const imageRef = useRef(null);
