@@ -5,6 +5,7 @@ import Logo from "../components/Logo";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMounted, setIsMounted] = useState(false); // new state for mount animation
 
   // Detect scroll position
   useEffect(() => {
@@ -24,10 +25,20 @@ const Header = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Animate header on first load
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const headerBgClass = isScrolled || isOpen ? "bg-black/90 shadow-lg backdrop-blur-sm" : "bg-transparent";
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 border-b-1 ${headerBgClass}`}>
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 border-b-1
+        ${headerBgClass}
+        ${isMounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"}
+      `}
+    >
       <nav className="container mx-auto flex items-center justify-between py-4 px-6 md:px-10 text-white aboreto-font">
         {/* Logo */}
         <Logo className="h-14 md:h-20 lg:h-24" />
@@ -43,7 +54,7 @@ const Header = () => {
 
         {/* Hamburger Button */}
         <button className="lg:hidden text-white focus:outline-none" onClick={() => setIsOpen(!isOpen)}>
-          <svg className="w-6 h-6" fill="none" stroke="currentColor"viewBox="0 0 24 24">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
