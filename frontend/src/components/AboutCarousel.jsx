@@ -1,12 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
+import zaki01 from "../assets/images/zaki01.jpg";
+import zaki02 from "../assets/images/zaki02.jpg";
+import zaki03 from "../assets/images/zaki03.jpg";
+import zaki04 from "../assets/images/zaki04.jpg";
 
 const AboutCarousel = () => {
 
   const images = [
-    "https://img.freepik.com/free-vector/crazy-style-technology-illustration_52683-93860.jpg?semt=ais_hybrid&w=740&q=80",
-    "https://jazzitupinteriors.co.uk/cdn/shop/files/Tiger2BD.webp?v=1732721235&width=1131",
-    "https://img.freepik.com/free-vector/hand-drawn-abstract-paint-background_23-2149155986.jpg?w=740&q=80",
-    "https://w0.peakpx.com/wallpaper/371/86/HD-wallpaper-cool-monkey-art-thumbnail.jpg",
+    zaki01,
+    zaki02,
+    zaki03,
+    zaki04
   ];
   const [currentImage, setCurrentImage] = useState(0);
   const [fade, setFade] = useState(true);
@@ -48,16 +52,16 @@ const AboutCarousel = () => {
   return (
     <div
       ref={imageRef}
-      className={`w-2/3 lg:w-1/3 flex-shrink-0 relative h-[300px] lg:h-[400px] overflow-hidden rounded-3xl 
+      className={`w-1/3 lg:w-1/3 flex-shrink-0 relative h-[300px] lg:h-[400px] overflow-hidden rounded-3xl 
         border border-white/20 shadow-xl group hover:shadow-2xl transition-all duration-1000
         ${imageVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
         bg-gradient-to-tr from-white/5 via-white/10 to-white/5 backdrop-blur-sm`}
     >
       <img
         src={images[currentImage]}
-        alt="Artwork"
+        alt="Zaki Shaqfeh"
         className={`absolute top-0 left-0 w-full h-full object-fit transition-opacity duration-1000 ease-in-out
-          ${fade ? "opacity-40 group-hover:opacity-100" : "opacity-0"}`}
+          ${fade ? "opacity-100 group-hover:opacity-50" : "opacity-0"}`}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/0 via-black/10 to-black/0 pointer-events-none"></div>
     </div>

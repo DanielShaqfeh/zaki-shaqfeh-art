@@ -34,7 +34,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 border-b-1
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-1000 border-b-1
         ${headerBgClass}
         ${isMounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"}
       `}
