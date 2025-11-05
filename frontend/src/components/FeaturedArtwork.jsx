@@ -78,7 +78,7 @@ export default function FeaturedArtwork() {
     <img
       src={art.image_url}
       alt={`Artwork ${art.id}`}
-      className="w-full h-full object-cover"
+      className="w-full h-full object-fit"
     />
   </div>
 ))}

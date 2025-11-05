@@ -27,9 +27,9 @@ html {
   border: 2px solid #00ff00; 
   background: linear-gradient(
     90deg,
-    rgba(0, 255, 0, 0.05),
-    rgba(0, 255, 0, 0.15),
-    rgba(0, 255, 0, 0.05)
+    rgba(0, 255, 0, 0.02),  
+    rgba(0, 255, 0, 0.08),  
+    rgba(0, 255, 0, 0.02)  
   );
   background-size: 200% 100%;
   animation: borderGlow 2.5s linear infinite;
@@ -44,6 +44,7 @@ html {
     background-position: -200% 0;
   }
 }
+
 
 
 
