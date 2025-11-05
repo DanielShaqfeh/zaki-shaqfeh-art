@@ -62,23 +62,27 @@ export default function FeaturedArtwork() {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {artworks.map((art) => (
-            <div
-              id={`art-${art.id}`}
-              key={art.id}
-              className={`w-full overflow-hidden border-4 border-black rounded transform transition-all duration-1000 shadow-md shadow-green-500
-                ${
-                  visibleImages[art.id]
-                    ? "opacity-50 translate-y-0"
-                    : "opacity-0 translate-y-10"
-                } hover:opacity-100`}
-            >
-              <img
-                src={art.image_url}
-                alt={`Artwork ${art.id}`}
-                className="w-full h-full object-fit"
-              />
-            </div>
-          ))}
+  <div
+    id={`art-${art.id}`}
+    key={art.id}
+    className={`w-full overflow-hidden border-4 border-black rounded transform transition-all duration-1000
+      ${
+        visibleImages[art.id]
+          ? "opacity-50 translate-y-0"
+          : "opacity-0 translate-y-10"
+      } hover:opacity-100`}
+    style={{
+      boxShadow: "0 10px 25px rgba(0, 255, 0, 0.2), 0 15px 40px rgba(0, 255, 0, 0.15)"
+    }}
+  >
+    <img
+      src={art.image_url}
+      alt={`Artwork ${art.id}`}
+      className="w-full h-full object-cover"
+    />
+  </div>
+))}
+
         </div>
       )}
 
