@@ -51,7 +51,7 @@ export default function FeaturedArtwork() {
   return (
     <section className="text-center">
       {/* Title stays static */}
-      <h2 className="text-4xl md:text-4xl font-semibold mb-6 tracking-wide aboreto-font">
+      <h2 className="text-2xl md:text-4xl font-semibold mb-6 tracking-wide aboreto-font">
         <span className="inline-block border-b-2 border-white pb-1">
           Featured Artwork
         </span>
@@ -89,7 +89,7 @@ export default function FeaturedArtwork() {
       {/* Button stays static */}
       <button
         onClick={() => navigate("/gallery")}
-        className="relative px-6 py-3 border border-white rounded overflow-hidden group"
+        className="relative px-6 py-3 border border-white rounded overflow-hidden group mb-10"
       >
         <span className="relative z-10">Discover More Art</span>
         <span className="absolute inset-0 border border-white rounded opacity-0 group-hover:opacity-100 animate-borderGlow"></span>
