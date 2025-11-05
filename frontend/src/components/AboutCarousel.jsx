@@ -6,9 +6,10 @@ import zaki04 from "../assets/images/zaki04.jpg";
 import zaki05 from "../assets/images/zaki05.jpg";
 import zaki06 from "../assets/images/zaki06.jpg";
 import zaki07 from "../assets/images/zaki07.jpg";
+import zaki08 from "../assets/images/zaki08.jpg";
 
 const AboutCarousel = () => {
-  const images = [zaki02, zaki01, zaki05, zaki03, zaki06, zaki04, zaki07];
+  const images = [zaki08, zaki02, zaki01, zaki05, zaki03, zaki06, zaki04, zaki07];
   const [currentImage, setCurrentImage] = useState(0);
   const [fade, setFade] = useState(true);
   const imageRef = useRef(null);
@@ -47,7 +48,7 @@ const AboutCarousel = () => {
   return (
     <div
       ref={imageRef}
-      className={`relative w-2/3 md:w-1/3 flex-shrink-0 h-[300px] lg:h-[400px] overflow-hidden rounded-3xl 
+      className={`relative w-3/3 md:w-1/3 flex-shrink-0 h-[300px] lg:h-[400px] overflow-hidden rounded-3xl 
         border border-white/20 shadow-xl group hover:shadow-2xl transition-all duration-1000
         ${imageVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
         bg-gradient-to-tr from-white/5 via-white/10 to-white/5 backdrop-blur-sm`}

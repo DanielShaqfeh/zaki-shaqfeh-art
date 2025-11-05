@@ -24,8 +24,13 @@ html {
 
 .animate-borderGlow {
   pointer-events: none;
-  border: 2px solid white;
-  background: linear-gradient(90deg, rgba(255,255,255,0.05), rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+  border: 2px solid #00ff00; 
+  background: linear-gradient(
+    90deg,
+    rgba(0, 255, 0, 0.05),
+    rgba(0, 255, 0, 0.15),
+    rgba(0, 255, 0, 0.05)
+  );
   background-size: 200% 100%;
   animation: borderGlow 2.5s linear infinite;
   mix-blend-mode: lighten;
@@ -39,6 +44,7 @@ html {
     background-position: -200% 0;
   }
 }
+
 
 
 
