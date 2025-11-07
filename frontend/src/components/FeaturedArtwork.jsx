@@ -68,7 +68,7 @@ export default function FeaturedArtwork() {
     className={`w-full overflow-hidden border-4 border-black rounded transform transition-all duration-1000
       ${
         visibleImages[art.id]
-          ? "opacity-50 translate-y-0"
+          ? "opacity-70 translate-y-0"
           : "opacity-0 translate-y-10"
       } hover:opacity-100`}
     style={{
