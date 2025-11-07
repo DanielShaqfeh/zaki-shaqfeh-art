@@ -50,43 +50,44 @@ export default function FeaturedArtwork() {
 
   return (
     <section className="text-center">
-      {/* Title stays static */}
+      {/* Static title */}
       <h2 className="text-2xl md:text-4xl font-semibold mb-6 tracking-wide aboreto-font">
         <span className="inline-block border-b-2 border-white pb-1">
           Featured Artwork
         </span>
       </h2>
 
+      
       {loading ? (
-        <p className="text-gray-400">Loading artworks...</p>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {artworks.map((art) => (
-  <div
-    id={`art-${art.id}`}
-    key={art.id}
-    className={`w-full overflow-hidden border-4 border-black rounded transform transition-all duration-1000
-      ${
-        visibleImages[art.id]
-          ? "opacity-70 translate-y-0"
-          : "opacity-0 translate-y-10"
-      } hover:opacity-100`}
-    style={{
-      boxShadow: "0 10px 25px rgba(0, 255, 0, 0.2), 0 15px 40px rgba(0, 255, 0, 0.15)"
-    }}
-  >
-    <img
-      src={art.image_url}
-      alt={`Artwork ${art.id}`}
-      className="w-full h-full object-fit"
-    />
-  </div>
-))}
-
+  <p className="text-gray-400">Loading artworks...</p>
+) : (
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-10 px-6 md:px-20 mb-10">
+    {artworks.map((art) => (
+      <div
+        id={`art-${art.id}`}
+        key={art.id}
+        className={`relative overflow-hidden transition-all duration-700 ease-out transform
+          ${
+            visibleImages[art.id]
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-10"
+          }`}
+      >
+        <div className="flex items-center justify-center">
+          <img
+            src={art.image_url}
+            alt={`Artwork ${art.id}`}
+            className="w-full h-auto transition-all duration-700"
+          />
         </div>
-      )}
+      </div>
+    ))}
+  </div>
+)}
 
-      {/* Button stays static */}
+
+
+      {/* static Button*/}
       <button
         onClick={() => navigate("/gallery")}
         className="relative px-6 py-3 border border-white rounded overflow-hidden group mb-10"

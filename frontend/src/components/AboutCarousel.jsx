@@ -57,7 +57,7 @@ const AboutCarousel = () => {
       <img
         src={images[currentImage]}
         alt="Zaki Shaqfeh"
-        className={`absolute top-0 left-0 w-full h-full object-fit transition-opacity duration-1000 ease-in-out
+        className={`absolute top-0 left-0 w-full h-full object-fill transition-opacity duration-1000 ease-in-out
           ${fade ? "opacity-100 group-hover:opacity-50" : "opacity-0"}`}
       />
 
