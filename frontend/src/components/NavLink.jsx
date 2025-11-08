@@ -1,4 +1,3 @@
-// src/components/NavLink.jsx
 import React from "react";
 import UnderlineLink from "./UnderlineLink";
 
