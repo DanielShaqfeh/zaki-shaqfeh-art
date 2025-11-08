@@ -3,6 +3,8 @@ import InputField from "./InputField";
 import SocialButton from "./SocialButton";
 import UnderlineLink from "./UnderlineLink";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const GoogleIcon = (
   <svg
     className="w-4 h-4 mr-2"
@@ -28,7 +30,7 @@ const LoginForm = () => {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/login", {
+      const response = await fetch(`${API_URL}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),

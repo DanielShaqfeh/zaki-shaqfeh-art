@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export default function FeaturedArtwork({ showAll = false, onShowAll }) {
   const [artworks, setArtworks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -9,12 +11,14 @@ export default function FeaturedArtwork({ showAll = false, onShowAll }) {
     const fetchArtworks = async () => {
       setLoading(true);
       try {
-        const url = showAll
-          ? "http://localhost:5000/api/paintings/most-liked"
-          : "http://localhost:5000/api/paintings/featured";
+       const url = showAll
+        ? `${API_URL}/api/paintings/most-liked`
+        : `${API_URL}/api/paintings/featured`;
 
-        const res = await fetch(url);
-        const data = await res.json();
+       const response = await fetch(url);
+       const data = await response.json();
+
+ 
         setArtworks(data);
         setVisibleImages({});
       } catch (err) {
