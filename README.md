@@ -1,7 +1,7 @@
 # Zaki Shaqfeh Art 🎨 
 
-Welcome to Zaki Shaqfeh Art, a modern web showcase of the artworks of my grandfather, 
-Zaki Shaqfeh. This project celebrates his creativity and artistic journey, presenting his art in a responsive, 
+Welcome to Zaki Shaqfeh Art, a modern web showcase of the artworks of my grandfather Zaki Shaqfeh رحمه الله . <br>
+This project celebrates his creativity and artistic journey, presenting his art in a responsive, 
 interactive, and visually engaging interface.
 
 ## 🌟 Features 
@@ -42,7 +42,7 @@ and more to come.....
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/zaki-shaqfeh-art.git
+   https://github.com/DanielShaqfeh/zaki-shaqfeh-art.git
    ```
 2. Install dependencies 
    ```bash
