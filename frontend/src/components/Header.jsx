@@ -1,34 +1,28 @@
 import React, { useState, useEffect } from "react";
 import NavLink from "../components/NavLink";
 import Logo from "../components/Logo";
+import ButtonWithUnderline from "../components/ButtonWithUnderline.jsx";
 
-const Header = () => {
+const Header = ({ showHomeOnly = false, onHomeClick }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMounted, setIsMounted] = useState(false); // new state for mount animation
+  const [isMounted, setIsMounted] = useState(false);
 
-  // Detect scroll position
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu when resizing to desktop
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        setIsOpen(false);
-      }
+      if (window.innerWidth >= 1024) setIsOpen(false);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Animate header on first load
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  useEffect(() => setIsMounted(true), []);
 
   const headerBgClass = isScrolled || isOpen ? "bg-black/90 shadow-lg backdrop-blur-sm" : "bg-transparent";
 
@@ -45,11 +39,22 @@ const Header = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden text-lg lg:flex lg:gap-10 gap-4">
-          <li><NavLink href="#about">ABOUT</NavLink></li>
-          <li><NavLink href="#gallery">GALLERY</NavLink></li>
-          <li><NavLink href="#achievements">ACHIEVEMENTS</NavLink></li>
-          <li><NavLink href="#contact">CONTACT</NavLink></li>
-          <li className="mr-5"><NavLink href="#login" to="/login">LOGIN</NavLink></li>
+          {showHomeOnly ? (
+            <li>
+              <ButtonWithUnderline onClick={onHomeClick} className="text-gray-400 hover:text-white text-lg aboreto-font">
+                HOME
+              </ButtonWithUnderline>
+            </li>
+          ) : (
+            <>
+              <li><NavLink href="#about">ABOUT</NavLink></li>
+              <li><NavLink href="#gallery">GALLERY</NavLink></li>
+              <li><NavLink href="#achievements">ACHIEVEMENTS</NavLink></li>
+              <li>
+                <NavLink href="mailto:your.email@gmail.com">CONTACT</NavLink> {/* <- updated */}
+              </li>
+            </>
+          )}
         </ul>
 
         {/* Hamburger Button */}
@@ -68,12 +73,23 @@ const Header = () => {
       {/* Mobile Menu */}
       <div className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"}`}>
         <ul className="flex flex-col items-start space-y-4 py-4 px-5 text-lg text-white">
-          <li><NavLink href="#home">HOME</NavLink></li>
-          <li><NavLink href="#about">ABOUT</NavLink></li>
-          <li><NavLink href="#gallery">GALLERY</NavLink></li>
-          <li><NavLink href="#achievements">ACHIEVEMENTS</NavLink></li>
-          <li><NavLink href="#contact">CONTACT</NavLink></li>
-          <li><NavLink href="#login" to="/login">LOGIN</NavLink></li>
+          {showHomeOnly ? (
+            <li>
+              <ButtonWithUnderline onClick={onHomeClick} className="text-gray-400 hover:text-white text-lg aboreto-font">
+                HOME
+              </ButtonWithUnderline>
+            </li>
+          ) : (
+            <>
+              <li><NavLink href="#home">HOME</NavLink></li>
+              <li><NavLink href="#about">ABOUT</NavLink></li>
+              <li><NavLink href="#gallery">GALLERY</NavLink></li>
+              <li><NavLink href="#achievements">ACHIEVEMENTS</NavLink></li>
+              <li>
+                <NavLink href="mailto:your.email@gmail.com">CONTACT</NavLink> {/* <- updated */}
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </header>

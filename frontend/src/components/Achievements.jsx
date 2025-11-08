@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-function Achievments() {
+function Achievements() {
   const achievements = [
     { text: "انتسب للاتحاد العام للفنانین التشكیلیین الفلسطینیین", year: "1970م" },
     { text: "أقام له الاتحاد معرضه الأول في قاعة جمعية الشابات المسيحية - عمان الأردن", year: "1970م" },
@@ -42,9 +42,9 @@ function Achievments() {
   }, []);
 
   return (
-    <section id="achievments" className="text-white text-center px-6 md:px-20 py-16" dir="rtl">
+    <section id="achievements" className="text-white text-center px-6 md:px-20 py-16" dir="rtl">
       <h2 className="text-4xl md:text-4xl font-semibold mb-10 tracking-wide aboreto-font">
-        <span className="inline-block border-b-2 border-white pb-1">Achievments</span>
+        <span className="inline-block border-b-2 border-white pb-1">achievements</span>
       </h2>
 
       <div className="max-w-4xl mx-auto space-y-6 text-md md:text-xl leading-relaxed text-gray-200 sans-serif-font">
@@ -77,4 +77,4 @@ function Achievments() {
   );
 }
 
-export default Achievments;
+export default Achievements;

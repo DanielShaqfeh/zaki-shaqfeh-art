@@ -44,6 +44,10 @@ html {
   }
 }
 
+section {
+  scroll-margin-top: 200px;
+}
+
 
 
 

@@ -8,7 +8,7 @@ const NavLink = ({ href, to, children }) => {
       e.preventDefault();
       const element = document.querySelector(href);
       if (element) {
-        const yOffset = -80; // adjust for fixed header height
+        const yOffset = -80; 
         const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
         window.scrollTo({ top: y, behavior: "smooth" });
       }
