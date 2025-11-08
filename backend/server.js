@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: "https://zaki-shaqfeh-art.vercel.app/", // frontend
+  origin: "https://zaki-shaqfeh-art.vercel.app", // frontend
   credentials: true,              
 }));
 
